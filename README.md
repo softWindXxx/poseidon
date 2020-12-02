@@ -1,31 +1,35 @@
 
-
 # Poseidon
-
-[TOC]
-
+![](https://img.shields.io/badge/language-java-blue.svg)
+![](https://img.shields.io/badge/version-1.0-brightgreen.svg)
+![](https://img.shields.io/badge/gradle-4.10.2-brightgreen.svg)
+![GitHub](https://img.shields.io/github/license/saseke/poseidon.svg)
 ## 1. 说明
 
 > Poseidon采用微服务架构方式,基于SpringCloud+SpringBoot+Mybatis Plus的商城系统。主要包括包括前台商城系统和后台管理系统。
 >
+>
 > 如果该项目对您有帮助，您可以点一下右上角的"star" 支持一下 谢谢!
 >
 > 或者可以"follow"一下,该项目会一直持续更新,不断添加新功能和优化
+>
+> 该项目仅用于学习，没有任何商业用途，如有侵权，立即删除。
+>
+> 由于服务太多，资金匮乏，运行时如果出什么问题，可以联系我。
 
 ## 2. 组织结构
-
 ```
 Poseidon
-├── psd-config -- 通用配置
-├── psd-discovery -- Eureka注册中心
-├── psd-elastic-search -- 基于Elasticsearch的商品搜索,推荐服务
-├── psd-gateway -- 网关服务
+├── psd-config -- 通用配置 
+├── psd-discovery -- Eureka注册中心 -- port: 8761
+├── psd-elastic-search -- 基于Elasticsearch的商品搜索,推荐服务 -- port: 9300
+├── psd-gateway -- 网关服务 -- port: 8769
 ├── psd-generate -- 采用Mybatis Generator自动生成代码
-├── psd-member -- 用户服务
-├── psd-order -- 订单服务
-├── psd-web-auth -- JWT用户登录服务
-├── psd-web-shop-cart -- 购物车服务
-└── psd-web-view -- 商品展示服务
+├── psd-member -- 用户服务 -- port: 9000
+├── psd-order -- 订单服务 -- port: 9100
+├── psd-web-auth -- JWT用户登录服务 --port: 9200
+├── psd-web-shop-cart -- 购物车服务 --port: 8090
+└── psd-web-view -- 商品展示服务 --port: 8080
 ```
 
 ![index](./doc/img/db.png)
@@ -67,6 +71,13 @@ Poseidon
 
 ![index](./doc/img/cart.png)
 
+
+#### 4.3 订单页
+![index](./doc/img/order.png)
+
+
+#### 4.4 个人中心
+![index](./doc/img/personalCenter.png)
 ## 5. Poseidon构建与运行
 
 ### 5.1 后台搭建
@@ -95,7 +106,7 @@ Poseidon
 
 ### 5.2 前台搭建
 
-[poseidon前台地址]("https://github.com/Saseke/poseidon-front")
+poseidon前台地址: https://github.com/Saseke/poseidon-front
 
 #### 5.2.1 环境的搭建
 
@@ -106,13 +117,7 @@ Poseidon
 
 * 可直接在`WebStorm`进行二次开发
 
-## 6. 联系方式
-
-QQ: `1538341848`
-
-Email: 1538341848@qq.com
-
-## 7 相关链接
-
-博客:  http://songmengyuan.me
+## 6 相关链接
+* 邮箱:  `1538341848@qq.com`
+* 博客:  http://songmengyuan.me
 

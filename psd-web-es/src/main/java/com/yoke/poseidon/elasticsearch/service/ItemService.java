@@ -2,10 +2,9 @@ package com.yoke.poseidon.elasticsearch.service;
 
 import com.yoke.poseidon.elasticsearch.entity.EsItem;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.lang.NonNull;
 
-import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -14,17 +13,15 @@ import java.util.List;
  */
 public interface ItemService {
 
-	List<EsItem> getByName(@NonNull String name);
-
 	EsItem add(@NonNull EsItem esItem);
 
 	void delete(@NonNull String itemId);
 
 	EsItem update(@NonNull EsItem esItem);
 
-	EsItem create(@NotNull EsItem esItem);
+	Page<EsItem> getByKey(String keyWord, int page, int limit);
 
-	Page<EsItem> getByKey(String name, PageRequest pageRequest);
+	EsItem getById(String itemId);
 
 	List<EsItem> getAll();
 
@@ -36,8 +33,11 @@ public interface ItemService {
 	/**
 	 * 商品推荐
 	 */
-	List<EsItem> recommend();
+	Page<EsItem> recommend(List<String> itemIds, int page, int size);
 
-	List<EsItem> test();
+	/**
+	 * 查询指定价格范围内的商品
+	 */
+	public Page<EsItem> queryPriceRange(BigDecimal price1, BigDecimal price2, int page, int size);
 
 }

@@ -8,7 +8,7 @@ import java.util.Date;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author yoke
@@ -75,6 +75,8 @@ public class Order implements Serializable {
 	private String sellerNick;
 
 	private Integer buyerComment;
+
+	private String address;
 
 	public String getOrderId() {
 		return orderId;
@@ -224,16 +226,25 @@ public class Order implements Serializable {
 		this.closeTime = closeTime;
 	}
 
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
 	@Override
 	public String toString() {
-		return "Order{" + "orderId=" + orderId + ", payment=" + payment + ", paymentType="
-				+ paymentType + ", postFee=" + postFee + ", status=" + status
-				+ ", createTime=" + createTime + ", updateTime=" + updateTime
+		return "Order{" + "orderId='" + orderId + '\'' + ", payment=" + payment
+				+ ", paymentType=" + paymentType + ", postFee=" + postFee + ", status="
+				+ status + ", createTime=" + createTime + ", updateTime=" + updateTime
 				+ ", paymentTime=" + paymentTime + ", endTime=" + endTime + ", closeTime="
-				+ closeTime + ", shippingName=" + shippingName + ", shippingCode="
-				+ shippingCode + ", buyerId=" + buyerId + ", buyerMessage=" + buyerMessage
-				+ ", buyerNick=" + buyerNick + ", sellerId=" + sellerId + ", sellerNick="
-				+ sellerNick + ", buyerComment=" + buyerComment + "}";
+				+ closeTime + ", shippingName='" + shippingName + '\''
+				+ ", shippingCode='" + shippingCode + '\'' + ", buyerId=" + buyerId
+				+ ", buyerMessage='" + buyerMessage + '\'' + ", buyerNick='" + buyerNick
+				+ '\'' + ", sellerId=" + sellerId + ", sellerNick='" + sellerNick + '\''
+				+ ", buyerComment=" + buyerComment + ", address='" + address + '\'' + '}';
 	}
 
 }

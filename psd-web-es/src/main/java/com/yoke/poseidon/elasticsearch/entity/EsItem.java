@@ -2,6 +2,8 @@ package com.yoke.poseidon.elasticsearch.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -10,7 +12,7 @@ import java.math.BigDecimal;
  * @Author Yoke
  * @Date 2018/10/17 下午8:17
  */
-@Document(indexName = "item")
+@Document(indexName = "poseidon", type = "item")
 public class EsItem implements Serializable {
 
 	private static final long serialVersionUID = -4001786119212330546L;
@@ -18,6 +20,7 @@ public class EsItem implements Serializable {
 	@Id
 	private String itemId;
 
+	@Field(type = FieldType.Text, analyzer = "ik_max_word")
 	private String name;
 
 	private Long cId;
@@ -38,8 +41,18 @@ public class EsItem implements Serializable {
 
 	private Integer sortOrder;
 
+	private Integer sale;
+
 	public static long getSerialVersionUID() {
 		return serialVersionUID;
+	}
+
+	public Integer getSale() {
+		return sale;
+	}
+
+	public void setSale(Integer sale) {
+		this.sale = sale;
 	}
 
 	public String getItemId() {
@@ -132,12 +145,10 @@ public class EsItem implements Serializable {
 
 	@Override
 	public String toString() {
-		return "ItemDto{" + "itemId='" + itemId + '\'' + ", name='" + name + '\''
-				+ ", cId=" + cId + ", itemCatName='" + itemCatName + '\''
-				+ ", sellPoint='" + sellPoint + '\'' + ", price=" + price + ", limitNum="
-				+ limitNum + ", image='" + image + '\'' + ", remark='" + remark + '\''
-				+ ", description='" + description + '\'' + ", sortOrder=" + sortOrder
-				+ '}';
+		return "EsItem{" + "itemId='" + itemId + '\'' + ", name='" + name + '\'' + ", cId=" + cId + ", itemCatName='"
+				+ itemCatName + '\'' + ", sellPoint='" + sellPoint + '\'' + ", price=" + price + ", limitNum="
+				+ limitNum + ", image='" + image + '\'' + ", remark='" + remark + '\'' + ", description='" + description
+				+ '\'' + ", sortOrder=" + sortOrder + ", sale=" + sale + '}';
 	}
 
 }

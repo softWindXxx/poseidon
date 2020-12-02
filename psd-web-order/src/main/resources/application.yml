@@ -11,8 +11,10 @@ spring:
   profiles:
     active: dev
   redis:
-    host: www.test.com
+    host: www.poseidon.com
     password: ${common.password}
+  jackson:
+    date-format: yyyy年MM月dd日 HH分ss秒
 mybatis-plus:
   mapper-locations: classpath:mapper/*Mapper.xml
   #实体扫描，多个package用逗号或者分号分隔
